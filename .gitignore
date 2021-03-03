@@ -1,0 +1,12 @@
+target
+bin
+
+core.*.dmp
+javacore.*.txt
+jitdump.*.dmp
+Snap.*.trc
+
+.classpath
+.project
+.settings
+.vscode
