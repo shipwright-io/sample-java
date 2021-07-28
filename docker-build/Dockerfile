@@ -1,5 +1,5 @@
 ### builder stage, used to compile the application
-FROM maven:3-jdk-8-openj9 AS builder
+FROM quay.io/shipwright-samples/maven:3-jdk-8-openj9 AS builder
 
 # copy the sources into the builder stage
 COPY . /app
@@ -9,7 +9,7 @@ WORKDIR /app
 RUN mvn package
 
 ### final stage, used to setup the open liberty runtime
-FROM openliberty/open-liberty:kernel-java8-openj9-ubi
+FROM quay.io/shipwright-samples/open-liberty:kernel-java8-openj9-ubi
 
 # copy liberty config
 COPY --chown=1001:0 src/main/liberty/config/ /config/
